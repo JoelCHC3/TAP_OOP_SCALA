@@ -98,15 +98,15 @@ public class Test_2 {
         List<String> list = new ArrayList<>();
         AbstractDataFrame d = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_1.csv");
         d.forEach(list::add);
-        d = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_2.csv");
+        d = createDataFrame("root/dfFile_root_2.csv");
         d.forEach(list::add);
-        d = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_1.csv");
+        d = createDataFrame("root/A/dfFile_A_1.csv");
         d.forEach(list::add);
-        d = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_2.csv");
+        d = createDataFrame("root/A/dfFile_A_2.csv");
         d.forEach(list::add);
-        d = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_1.csv");
+        d = createDataFrame("root/A/B/dfFile_B_1.csv");
         d.forEach(list::add);
-        d = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2.csv");
+        d = createDataFrame("root/A/B/dfFile_B_2.csv");
         d.forEach(list::add);
         return list;
     }

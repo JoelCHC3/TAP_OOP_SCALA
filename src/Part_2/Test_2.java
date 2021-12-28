@@ -96,7 +96,7 @@ public class Test_2 {
      */
     public List<String> createListIterator() {
         List<String> list = new ArrayList<>();
-        AbstractDataFrame d = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_1.csv");
+        AbstractDataFrame d = createDataFrame("root/dfFile_root_1.csv");
         d.forEach(list::add);
         d = createDataFrame("root/dfFile_root_2.csv");
         d.forEach(list::add);

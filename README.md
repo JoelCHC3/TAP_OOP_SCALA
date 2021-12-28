@@ -3,8 +3,7 @@ This project combines the first and second assignment of Advanced Programming
 Techniques (TAP) subject, those being TAP_OOP and TAP_SCALA.   
 The root folder includes the composite structure with sample reduced files for   
 each extension.   
-The files folder includes sample large files for each extension.   
-Paths for each file must be changed in the code.
+The files folder includes sample large files for each extension.    
 
 == OOP Part ==    
 Design of a DataFrame library in Java using Design Patterns. It accepts CSV, JSON

@@ -14,17 +14,13 @@ public class DFStruct {
     /**
      * Initializes the list of DataFrame.
      */
-    public DFStruct() {
-        dataFrames = new ArrayList<>();
-    }
+    public DFStruct() {dataFrames = new ArrayList<>();}
 
     /**
      * Adds a DataFrame to the list.
-     * @param d
+     * @param d The DataFrame to be added.
      */
-    public void addDataFrame(DataFrame d) {
-        dataFrames.add(d);
-    }
+    public void addDataFrame(DataFrame d) {dataFrames.add(d);}
 
     /**
      * Implements the MapReduce logic.

@@ -6,7 +6,6 @@ import java.lang.Math.round
 import scala.annotation.tailrec
 import scala.collection.mutable.ListBuffer
 
-
 object Main extends scala.App{
 
   compositeTest()
@@ -171,11 +170,11 @@ object Main extends scala.App{
     }
 
     println("\n--- Tail recursion to replace a certain word ---")
-    val tailRecString = listFilterMapTail(stringList.toList,containsWord,replaceWord)    //StringList
+    val tailRecString = listFilterMapTail(stringList.toList,containsWord,replaceWord)
     for(a <- tailRecString) println(a)
 
     println("\n--- Stack recursion to replace a certain word ---")
-    val stackRecString = listFilterMapStack(stringList.toList,containsWord,replaceWord)    //StringList
+    val stackRecString = listFilterMapStack(stringList.toList,containsWord,replaceWord)
     for(a <- stackRecString) println(a)
 
     //--- For use --- Same result as in the recursion part for the string list.
@@ -221,7 +220,6 @@ object Main extends scala.App{
     val curryList3 = listFilterMapStackCurry(floatList.toList)(bThan)(_:Any=>Any)
     val auxCurry3 = curryList3(roundVal)
     for(a <- auxCurry3) println(a)
-
   }
 
   /**
@@ -254,7 +252,7 @@ object Main extends scala.App{
 
     trait Classified {def condition():String = "By the way, I'm classified."}
     val file2 = new ProxyFile("C:/Users/joelc/Desktop/cities_float.csv") with Classified
-    println(file2.talk())
+    println("\n"+file2.talk())
     println(file2.speak())
     println(file2.condition())
   }
@@ -303,6 +301,4 @@ object Main extends scala.App{
 
     root
   }
-
-
 }

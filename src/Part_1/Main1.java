@@ -105,7 +105,7 @@ public class Main1 {
             if(path.endsWith(".csv")) df = new DataFrameCSV(path);
             else if(path.endsWith(".json")) df = new DataFrameJSON(path);
             else if(path.endsWith(".txt")) df = new DataFrameTXT(path);
-            else throw new ExtensionNotSupported("Error amb l'extensió: "+path);
+            else throw new ExtensionNotSupported("There is a problem with the extension: "+path);
             df.openDataFrame();
         } catch (ExtensionNotSupported e) {
             e.printStackTrace();

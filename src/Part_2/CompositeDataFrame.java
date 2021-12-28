@@ -47,7 +47,7 @@ public class CompositeDataFrame implements DataFrame {
             children.add(child);
             child.setColumns(this.columns);
         } else if(child.columns() == this.columns) { //The number of columns is already defined, and it is the same
-            // as the child's number, so it can be added.
+            // as the child's number, so it can be added without modifications.
             children.add(child);
         } else {    //The number of columns is already defined, but the child's number of columns is different.
             throw new ColumnException("Error adding children: ");
@@ -128,7 +128,8 @@ public class CompositeDataFrame implements DataFrame {
         List<String> copy = new ArrayList<>();
         List<String> copy2;
         for(DataFrame child:children) {
-            copy2 = child.sort(label, comparator);
+            copy2 = child.getListCol(child.getColByLabel(label));
+            copy2.remove(0);    //the label is removed
             copy = Stream.concat(copy.stream(),copy2.stream()).collect(Collectors.toList());
         }
         copy.sort(comparator);
@@ -223,7 +224,7 @@ public class CompositeDataFrame implements DataFrame {
         System.out.print("\t");
         for(DataFrame child:children) {
             if(id==0) {
-                child.getLabels().forEach(e -> System.out.print("\t|\t"+e)); //print the labels without
+                child.getLabels().forEach(e -> System.out.print("\t|\t"+e)); //print the labels row
                 System.out.println();
             }
             id = child.printDataFrame(id);
@@ -247,12 +248,10 @@ public class CompositeDataFrame implements DataFrame {
     //--- Visitor logic method ---
     //----------------------------
     /**
-     * Method to accept a visitor.
+     * Method to accept a Java implemented visitor.
      * @param v The visitor.
      */
-    public void accept(Visitor v){
-        v.visit(this);
-    }
+    public void accept(Visitor v) {v.visit(this);}
 
     //------------------------
     //--- Auxiliar methods ---
@@ -261,18 +260,14 @@ public class CompositeDataFrame implements DataFrame {
      * Returns the labels of the DataFrame
      * @return List with the labels.
      */
-    public List<String> getLabels() {
-        return children.get(0).getLabels();
-    }
+    public List<String> getLabels() {return children.get(0).getLabels();}
 
     /**
      * Finds the corresponding column of a certain label.
      * @param label The label which column is to be found.
      * @return The column number.
      */
-    public int getColByLabel(String label) {
-        return children.get(0).getColByLabel(label);
-    }
+    public int getColByLabel(String label) {return children.get(0).getColByLabel(label);}
 
     /**
      * Makes a copy of a whole column of the DataFrame.
@@ -286,13 +281,15 @@ public class CompositeDataFrame implements DataFrame {
         for(DataFrame child:children) {
             listOfLists.add(child.getListCol(column));
         }
+
         for(int i=1;i<listOfLists.size();i++){
-            listOfLists.get(i).remove(0);
+            listOfLists.get(i).remove(0);   //the label is removed from every list except for the first one
         }
 
         for (List<String> listOfList : listOfLists) {
             list.addAll(listOfList);
         }
+
         return list;
     }
 }

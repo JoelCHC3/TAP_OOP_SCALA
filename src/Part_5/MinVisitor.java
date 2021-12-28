@@ -17,9 +17,7 @@ public class MinVisitor extends Visitor {
      * Returns the minimum value of the column.
      * @return The value.
      */
-    public int getMinimum(){
-        return minimum;
-    }
+    public int getMinimum(){return minimum;}
 
     /**
      * Implements the behavior of the visitor when visiting.

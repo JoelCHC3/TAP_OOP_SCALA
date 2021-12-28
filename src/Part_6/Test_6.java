@@ -33,11 +33,11 @@ public class Test_6 {
         PrintStream old = System.out;       //Saving old System.out
         System.setOut(ps);                  //Setting new System.out
 
-        d.query(isEqual,"State");
+        d.query(isEqual,"State");   //Anything printed will be in baos
 
         System.out.flush();
         System.setOut(old);                 //Setting old System.out. Things are back to normal
-        //The following String is the expected output for the concrete query aplied to this file
+        //The following String is the expected output for the concrete query applied to this file
         String expectedOutput = """
                 Method called: query\r
                 Method called: query\r

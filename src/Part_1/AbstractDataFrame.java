@@ -3,7 +3,6 @@ package Part_1;
 import Part_5.Visitor;
 import Visitor.ScalaVisitor;
 
-
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -37,7 +36,7 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
     /**
      * @param row The row where the value is.
      * @param label The label where the value is.
-     * @return The value located at a given row and colum.
+     * @return The value located at a given row and label.
      */
     public String at (int row, String label) {
         return iat(row, getColByLabel(label)-1);
@@ -53,7 +52,7 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
     }
 
     /**
-     * @return The columns of a DataFrame.
+     * @return The columns of the DataFrame.
      */
     public int columns () {return columns;}
 
@@ -151,7 +150,6 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
     public void printDataFrame() {
         int i,j;
         StringBuilder sb = new StringBuilder();
-        String out;
         for(j=0;j<(data.get(0).size());j++) {
             sb.delete(0,sb.length());
             sb.append("\t");
@@ -159,8 +157,7 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
                 sb.append(data.get(i).get(j));
                 sb.append(" \t|\t");
             }
-            out = sb.toString();
-            System.out.println(out);
+            System.out.println(sb);
         }
     }
 
@@ -173,7 +170,6 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
     public int printDataFrame(int x) {
         int i,j;
         StringBuilder sb = new StringBuilder();
-        String out;
         for(j=1;j<(data.get(0).size());j++) {
             sb.append("\t");
             sb.append(x);
@@ -183,8 +179,7 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
                 sb.append(" \t|\t");
             }
             x++;
-            out = sb.toString();
-            System.out.println(out);
+            System.out.println(sb);
             sb.delete(0,sb.length());
         }
         return x;
@@ -194,13 +189,13 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
     //--- Visitor logic method ---
     //----------------------------
     /**
-     * Method to accept a Java visitor.
+     * Method to accept a Java implemented visitor.
      * @param v The visitor.
      */
     public void accept(Visitor v){v.visit(this);}
 
     /**
-     * Method to accept a Scala visitor.
+     * Method to accept a Scala implemented visitor.
      * @param v The visitor.
      */
     public void accept(ScalaVisitor v){v.visit(this);}
@@ -297,24 +292,6 @@ public abstract class AbstractDataFrame implements Iterable<String>, Part_2.Data
             list.add(data.get(i).get(0));
         }
         return list;
-    }
-
-    /**
-     * toString method.
-     * @return The String value.
-     */
-    public String toString() {
-        int i,j;
-        StringBuilder sb = new StringBuilder();
-        for(j=0;j<(data.get(0).size());j++) {
-            sb.append("\t");
-            for(i=0;i<(columns+1);i++) {
-                sb.append(data.get(i).get(j));
-                sb.append(" \t|\t");
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
     }
 }
 

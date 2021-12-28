@@ -38,7 +38,7 @@ class FilterVisitor(condition:Any => Boolean, column:Int) extends ScalaVisitor {
     }
 
     var id = 0
-    for(e <- theList) { //For every element, its ID is added if it fulfuills the condition
+    for(e <- theList) { //For every element, its ID is added if it fulfills the condition
       if(condition(e)) idList += id
       id += 1
     }
@@ -46,7 +46,7 @@ class FilterVisitor(condition:Any => Boolean, column:Int) extends ScalaVisitor {
     val sb = new StringBuilder("\t")
     for(id <- idList) {
       sb ++= ""+(id+globalId)+"\t|\t"
-      for(i <- 1 to (data.size()-1)) {
+      for(i <- 1 until data.size()) {
         sb ++= data.get(i).get(id+1)
         sb ++= "\t|\t"
       }

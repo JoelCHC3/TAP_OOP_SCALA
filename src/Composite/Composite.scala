@@ -1,14 +1,11 @@
 package Composite
 
 import scala.collection.mutable.ListBuffer
-import Visitor.ScalaVisitor
-
-import Part_1.AbstractDataFrame
-import Part_1.DataFrameCSV
-import Part_2.DataFrame
-
 import java.util
 import scala.jdk.CollectionConverters.CollectionHasAsScala
+
+import Visitor.ScalaVisitor
+import Part_1.DataFrameCSV
 
 /**
  * Scala DataFrame logic trait
@@ -24,7 +21,6 @@ trait DataFrameScala {
   def getColByLabel(label: String): Int
   def getLabels: List[String]
   def setColumns(x: Int): Unit
-
 }
 
 /**
@@ -34,12 +30,12 @@ trait Talkable {
   def talk():String
 }
 
-/**
- * Basic trait to test multiple inheritance
- */
-trait Speaker {
-  def speak():String
-}
+  /**
+   * Basic trait to test multiple inheritance
+   */
+  trait Speaker {
+    def speak():String
+  }
 
 /**
  * Class to be used as a Proxy for the AbstractDataFrame Java class. Every call for an AbstractDataFrame method is made
@@ -63,6 +59,11 @@ class ProxyFile(val path:String) extends DataFrameScala with Talkable with Speak
     df.openDataFrame()
   }
 
+  /**
+   * This method is only used by a CompositeDataFrame, in order to handle the logic relating to the number of columns.
+   *
+   * @param x The value to be assigned to columns.
+   */
   def setColumns(x: Int): Unit = {
     df.setColumns(x)
   }
@@ -115,7 +116,7 @@ class ProxyFile(val path:String) extends DataFrameScala with Talkable with Speak
   //--- Visitor logic method ---
   //----------------------------
   /**
-   * Method to accept a visitor.
+   * Method to accept a Scala implemented visitor.
    *
    * @param v The visitor.
    */
@@ -125,8 +126,7 @@ class ProxyFile(val path:String) extends DataFrameScala with Talkable with Speak
   //--- Auxiliar methods ---
   //------------------------
   /**
-   * Finds the corresponding column of a certain label.
-   *
+   * Finds the corresponding column of a certain label
    * @param label The label which column is to be found.
    * @return The column number. -1 If the label does not exist.
    */
@@ -134,14 +134,12 @@ class ProxyFile(val path:String) extends DataFrameScala with Talkable with Speak
 
   /**
    * Returns the labels of the DataFrame
-   *
    * @return List with the labels.
    */
   def getLabels: List[String] = df.getLabels.asScala.toList
 
   /**
    * Makes a copy of a whole column of the DataFrame.
-   *
    * @param col The desired column.
    * @return The copy of the column.
    */
@@ -149,7 +147,6 @@ class ProxyFile(val path:String) extends DataFrameScala with Talkable with Speak
 
   /**
    * Returns the data of the DataFrame.
-   *
    * @return Arraylist of String ArrayLists containing the data.
    */
   def getData: List[util.ArrayList[String]] = df.getData.asScala.toList
@@ -176,7 +173,7 @@ class Directory(val name:String) extends DataFrameScala {
       children += child
       child.setColumns(cols)
     } else if(child.columns() == cols) {  //The number of columns is already defined, and it is the same
-      // as the child's number, so it can be added.
+      // as the child's number, so it can be added without modifications.
       children += child
     } else println("Error adding child")  //The number of columns is already defined, but the child's number of columns is different.
   }
@@ -276,7 +273,7 @@ class Directory(val name:String) extends DataFrameScala {
   //--- Visitor logic method ---
   //----------------------------
   /**
-   * Method to accept a visitor.
+   * Method to accept a Scala implemented visitor.
    * @param v The visitor.
    */
   override def accept(v:ScalaVisitor): Unit = v.visit(this)

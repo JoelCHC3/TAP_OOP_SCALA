@@ -21,13 +21,12 @@ public class DataFrameTXT extends AbstractDataFrame {
      * @throws Exception The exception thrown.
      */
     public void openDataFrame() throws Exception {
-
         Scanner sc = new Scanner(new File(path));
         int i;
         sc.useDelimiter("\n");
         String line = sc.next();
-        String[] token = line.split("#");   //This token is the same as the delimiter used in the source file
-        String delimiter = token[1];
+        String[] token = line.split("#");   //token includes the first line elements, which include the delimiter
+        String delimiter = token[1];    //the element in the middle is the desired delimiter
 
         String[] labels;
         line = sc.next();

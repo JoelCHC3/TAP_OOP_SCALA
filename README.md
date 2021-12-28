@@ -50,4 +50,3 @@ Main program for the Scala part includes the testing for:
 
 = Visitor =      
 Implementation of the visitor pattern to be combined with the Scala composite.
-

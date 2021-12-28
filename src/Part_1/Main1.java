@@ -4,9 +4,9 @@ import java.util.function.Predicate;
 
 public class Main1 {
     public static void main(String[] args) {
-        AbstractDataFrame df = createDataFrame("C:/Users/joelc/Desktop/cities.json");
+        AbstractDataFrame df = createDataFrame("files/cities.json");
         testDataFrameCities(df);
-        //AbstractDataFrame df = createDataFrame("C:/Users/joelc/Desktop/100_Sales_Records.csv");
+        //AbstractDataFrame df = createDataFrame("files/100_Sales_Records.csv");
         //testDataFrameSales(df);
     }
 

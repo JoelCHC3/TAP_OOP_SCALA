@@ -143,7 +143,7 @@ object Main extends scala.App{
     }
 
     //Use of recursion for a float List
-    val file1 = new ProxyFile("C:/Users/joelc/Desktop/cities_float.csv")
+    val file1 = new ProxyFile("files/cities_float.csv")
     file1.openDataFrame()
     val column = file1.getListCol(1)
     val columnValues = column.tail  //Getting rid of the first value (the label)
@@ -160,7 +160,7 @@ object Main extends scala.App{
     for(a <- stackRecFloat) println(a)
 
     //Use of recursion for a string list
-    val file2 = new ProxyFile("C:/Users/joelc/Desktop/cities.csv")
+    val file2 = new ProxyFile("files/cities.csv")
     file2.openDataFrame()
     val column2 = file2.getListCol(9)
     val column2Values = column2.tail  //Getting rid of the first value (the label)
@@ -245,13 +245,13 @@ object Main extends scala.App{
    */
   def multipleInheritanceTest(): Unit = {
     println("\n--- Multiple inheritance example ---")
-    val file1 = new ProxyFile("C:/Users/joelc/Desktop/cities_float.csv")
+    val file1 = new ProxyFile("files/cities_float.csv")
     //--- Multiple inheritance ---
     println(file1.talk())
     println(file1.speak())
 
     trait Classified {def condition():String = "By the way, I'm classified."}
-    val file2 = new ProxyFile("C:/Users/joelc/Desktop/cities_float.csv") with Classified
+    val file2 = new ProxyFile("files/cities_float.csv") with Classified
     println("\n"+file2.talk())
     println(file2.speak())
     println(file2.condition())
@@ -272,8 +272,8 @@ object Main extends scala.App{
    * @return The root Directory
    */
   def makeComposite(): Directory = {
-    val rootFile1 = new ProxyFile("C:/Users/joelc/Desktop/root/dfFile_root_1.csv")
-    val rootFile2 = new ProxyFile("C:/Users/joelc/Desktop/root/dfFile_root_2.csv")
+    val rootFile1 = new ProxyFile("root/dfFile_root_1.csv")
+    val rootFile2 = new ProxyFile("root/dfFile_root_2.csv")
     rootFile1.openDataFrame()
     rootFile2.openDataFrame()
     val root = new Directory("root")
@@ -281,16 +281,16 @@ object Main extends scala.App{
     root.addChild(rootFile2)
 
     val dirA = new Directory("A")
-    val AFile1 = new ProxyFile("C:/Users/joelc/Desktop/root/A/dfFile_A_1.csv")
-    val AFile2 = new ProxyFile("C:/Users/joelc/Desktop/root/A/dfFile_A_2.csv")
+    val AFile1 = new ProxyFile("root/A/dfFile_A_1.csv")
+    val AFile2 = new ProxyFile("root/A/dfFile_A_2.csv")
     AFile1.openDataFrame()
     AFile2.openDataFrame()
     dirA.addChild(AFile1)
     dirA.addChild(AFile2)
 
     val dirB = new Directory("B")
-    val BFile1 = new ProxyFile("C:/Users/joelc/Desktop/root/A/B/dfFile_B_1.csv")
-    val BFile2 = new ProxyFile("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2.csv")
+    val BFile1 = new ProxyFile("root/A/B/dfFile_B_1.csv")
+    val BFile2 = new ProxyFile("root/A/B/dfFile_B_2.csv")
     BFile1.openDataFrame()
     BFile2.openDataFrame()
     dirB.addChild(BFile1)

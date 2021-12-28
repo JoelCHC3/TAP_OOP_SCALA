@@ -74,8 +74,8 @@ public class Main2 {
      */
     public static CompositeDataFrame getRootCompositeDF(String ext) {
         CompositeDataFrame df_root = new CompositeDataFrame();
-        AbstractDataFrame dfFile_root_1 = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_1"+ext);
-        AbstractDataFrame dfFile_root_2 = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_2"+ext);
+        AbstractDataFrame dfFile_root_1 = createDataFrame("root/dfFile_root_1"+ext);
+        AbstractDataFrame dfFile_root_2 = createDataFrame("root/dfFile_root_2"+ext);
         CompositeDataFrame df_a = new CompositeDataFrame();
         try {
             df_root.addChild(dfFile_root_1);
@@ -96,8 +96,8 @@ public class Main2 {
         }
 
         CompositeDataFrame df_b = new CompositeDataFrame();
-        AbstractDataFrame dfFile_A_1 = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_1"+ext);
-        AbstractDataFrame dfFile_A_2 = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_2"+ext);
+        AbstractDataFrame dfFile_A_1 = createDataFrame("root/A/dfFile_A_1"+ext);
+        AbstractDataFrame dfFile_A_2 = createDataFrame("root/A/dfFile_A_2"+ext);
         try {
             df_a.addChild(dfFile_A_1);
         } catch (ColumnException e) {
@@ -114,8 +114,8 @@ public class Main2 {
             e.printStackTrace();
         }
 
-        AbstractDataFrame dfFile_B_1 = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_1"+ext);
-        AbstractDataFrame dfFile_B_2 = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2"+ext);
+        AbstractDataFrame dfFile_B_1 = createDataFrame("root/A/B/dfFile_B_1"+ext);
+        AbstractDataFrame dfFile_B_2 = createDataFrame("root/A/B/dfFile_B_2"+ext);
 
         try {
             df_b.addChild(dfFile_B_1);
@@ -129,7 +129,7 @@ public class Main2 {
         }
 
         //The above file is created in order to proof the correct use of the method removeChild
-        AbstractDataFrame repeatedFile = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2"+ext);
+        AbstractDataFrame repeatedFile = createDataFrame("root/A/B/dfFile_B_2"+ext);
         try {
             df_b.addChild(repeatedFile);
         } catch (ColumnException e) {

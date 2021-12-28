@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 import static Part_1.Main1.createDataFrame;
 
 public class Test_1 {
-    private final String path = "C:/Users/joelc/Desktop/cities.json";   //path of the file to be tested
+    private final String path = "files/cities.json";   //path of the file to be tested
     AbstractDataFrame d = createDataFrame(path);
 
     /**

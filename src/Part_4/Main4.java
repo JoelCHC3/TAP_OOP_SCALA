@@ -32,12 +32,12 @@ public class Main4 {
      */
     public static DFStruct getRootDFStruct() {
         DFStruct dfStruct = new DFStruct();
-        AbstractDataFrame df_root_1 = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_1.csv");
-        AbstractDataFrame df_root_2 = createDataFrame("C:/Users/joelc/Desktop/root/dfFile_root_2.csv");
-        AbstractDataFrame df_A_1 = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_1.csv");
-        AbstractDataFrame df_A_2 = createDataFrame("C:/Users/joelc/Desktop/root/A/dfFile_A_2.csv");
-        AbstractDataFrame df_B_1 = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_1.csv");
-        AbstractDataFrame df_B_2 = createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2.csv");
+        AbstractDataFrame df_root_1 = createDataFrame("root/dfFile_root_1.csv");
+        AbstractDataFrame df_root_2 = createDataFrame("root/dfFile_root_2.csv");
+        AbstractDataFrame df_A_1 = createDataFrame("root/A/dfFile_A_1.csv");
+        AbstractDataFrame df_A_2 = createDataFrame("root/A/dfFile_A_2.csv");
+        AbstractDataFrame df_B_1 = createDataFrame("root/A/B/dfFile_B_1.csv");
+        AbstractDataFrame df_B_2 = createDataFrame("root/A/B/dfFile_B_2.csv");
         dfStruct.addDataFrame(df_root_1);
         dfStruct.addDataFrame(df_root_2);
         dfStruct.addDataFrame(df_A_1);

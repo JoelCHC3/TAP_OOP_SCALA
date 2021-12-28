@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class Main6 {
     public static void main(String[] args) {
-        DataFrame df = Part_1.Main1.createDataFrame("C:/Users/joelc/Desktop/root/A/B/dfFile_B_2.csv");
+        DataFrame df = Part_1.Main1.createDataFrame("root/A/B/dfFile_B_2.csv");
 
         List<Observer> obs = new ArrayList<>();
         obs.add(new LogObserver());

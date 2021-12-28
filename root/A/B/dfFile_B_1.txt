@@ -1,0 +1,15 @@
+#,#
+LatD, "LatM", "LatS", "NS", "LonD", "LonM", "LonS", "EW", "City", "State"
+   38,   31,   47, "N",    106,    0,    0, "W", "Salida", CO
+   44,   56,   23, "N",    123,    1,   47, "W", "Salem", OR
+   44,   57,    0, "N",     93,    5,   59, "W", "Saint Paul", MN
+   38,   37,   11, "N",     90,   11,   24, "W", "Saint Louis", MO
+   39,   46,   12, "N",     94,   50,   23, "W", "Saint Joseph", MO
+   42,    5,   59, "N",     86,   28,   48, "W", "Saint Joseph", MI
+   44,   25,   11, "N",     72,    1,   11, "W", "Saint Johnsbury", VT
+   45,   34,   11, "N",     94,   10,   11, "W", "Saint Cloud", MN
+   29,   53,   23, "N",     81,   19,   11, "W", "Saint Augustine", FL
+   43,   25,   48, "N",     83,   56,   24, "W", "Saginaw", MI
+   38,   35,   24, "N",    121,   29,   23, "W", "Sacramento", CA
+   43,   36,   36, "N",     72,   58,   12, "W", "Rutland", VT
+   33,   24,    0, "N",    104,   31,   47, "W", "Roswell", NM

@@ -2,12 +2,12 @@
 This project combines the first and second assignment of Andvanced Programming
 Techniques (TAP) subject, those being TAP_OOP and TAP_SCALA.
 
-== OOP Part == 
+== OOP Part ==   
 Design of a DataFrame library in Java using Design Patterns. It accepts CSV, JSON
 and .txt files (.txt files must have a first line with only the delimiter between
 sharps).
 
-= Part 1 - DATA FILES + FACTORY =
+= Part 1 - DATA FILES + FACTORY =   
 Implementations for each type of file and its creation with the factory pattern.
 Unit tests and main program for this part.
 
